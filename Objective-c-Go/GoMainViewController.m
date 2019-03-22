@@ -91,7 +91,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 }
 - (NSArray *)controlsArray{
     if (!_controlsArray) {
-        _controlsArray = [NSArray arrayWithObjects:@"UITableView",@"UICollectionView", nil];
+        _controlsArray = [NSArray arrayWithObjects:@"UITableView",@"UICollectionView",@"UISplitViewController", nil];
     }
     return _controlsArray;
 }
