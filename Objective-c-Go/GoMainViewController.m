@@ -85,7 +85,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 }
 - (NSArray *)goArray{
     if (!_goArray) {
-        _goArray = [NSArray arrayWithObjects:@"控件", nil];
+        _goArray = [NSArray arrayWithObjects:@"控件",@"属性", nil];
     }
     return _goArray;
 }
