@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */; };
 		1C7843252244B6BB00C60295 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843242244B6BB00C60295 /* AppDelegate.m */; };
 		1C7843282244B6BB00C60295 /* GoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843272244B6BB00C60295 /* GoMainViewController.m */; };
 		1C78432B2244B6BB00C60295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7843292244B6BB00C60295 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		1C78435E2244C7CE00C60295 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C78435D2244C7CE00C60295 /* BaseCollectionViewCell.m */; };
 		1C7843612244C7E700C60295 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843602244C7E700C60295 /* BaseTableViewCell.m */; };
 		1C7843642244C81500C60295 /* GoMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843632244C81500C60295 /* GoMainCollectionViewCell.m */; };
+		9E4C2437E195DC99B1C5CC9C /* libPods-Objective-c-Go.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17DBA9025AD08A945A634FAA /* Pods-Objective-c-Go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objective-c-Go.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Objective-c-Go/Pods-Objective-c-Go.debug.xcconfig"; sourceTree = "<group>"; };
+		1C6BCF6D2248ABD800EB3746 /* GoToolBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToolBarViewController.h; sourceTree = "<group>"; };
+		1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoToolBarViewController.m; sourceTree = "<group>"; };
 		1C7843202244B6BB00C60295 /* Objective-c-Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-c-Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7843232244B6BB00C60295 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1C7843242244B6BB00C60295 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +68,8 @@
 		1C7843622244C81500C60295 /* GoMainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoMainCollectionViewCell.h; sourceTree = "<group>"; };
 		1C7843632244C81500C60295 /* GoMainCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoMainCollectionViewCell.m; sourceTree = "<group>"; };
 		1C7843652244D2FB00C60295 /* GoPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoPrefixHeader.pch; sourceTree = "<group>"; };
+		22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Objective-c-Go.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		791B64E242988907C71208ED /* Pods-Objective-c-Go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objective-c-Go.release.xcconfig"; path = "Pods/Target Support Files/Pods-Objective-c-Go/Pods-Objective-c-Go.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E4C2437E195DC99B1C5CC9C /* libPods-Objective-c-Go.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C6BCF6C2248AB7400EB3746 /* UIToolBar */ = {
+			isa = PBXGroup;
+			children = (
+				1C6BCF6D2248ABD800EB3746 /* GoToolBarViewController.h */,
+				1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */,
+			);
+			path = UIToolBar;
+			sourceTree = "<group>";
+		};
 		1C7843172244B6BB00C60295 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +114,8 @@
 				1C78433E2244B6BE00C60295 /* Objective-c-GoTests */,
 				1C7843492244B6BE00C60295 /* Objective-c-GoUITests */,
 				1C7843212244B6BB00C60295 /* Products */,
+				3CC372197A161DE676880CD3 /* Pods */,
+				D82BEB4EEAAA61620DE42BDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +132,7 @@
 		1C7843222244B6BB00C60295 /* Objective-c-Go */ = {
 			isa = PBXGroup;
 			children = (
+				1C6BCF6C2248AB7400EB3746 /* UIToolBar */,
 				1C78435B2244C7B000C60295 /* Base */,
 				1C7843262244B6BB00C60295 /* GoMainViewController.h */,
 				1C7843272244B6BB00C60295 /* GoMainViewController.m */,
@@ -160,6 +180,23 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		3CC372197A161DE676880CD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17DBA9025AD08A945A634FAA /* Pods-Objective-c-Go.debug.xcconfig */,
+				791B64E242988907C71208ED /* Pods-Objective-c-Go.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D82BEB4EEAAA61620DE42BDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,6 +204,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C78434F2244B6BE00C60295 /* Build configuration list for PBXNativeTarget "Objective-c-Go" */;
 			buildPhases = (
+				43B2F9655BD2F571758B887E /* [CP] Check Pods Manifest.lock */,
 				1C78431C2244B6BB00C60295 /* Sources */,
 				1C78431D2244B6BB00C60295 /* Frameworks */,
 				1C78431E2244B6BB00C60295 /* Resources */,
@@ -285,6 +323,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43B2F9655BD2F571758B887E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Objective-c-Go-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C78431C2244B6BB00C60295 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -294,6 +353,7 @@
 				1C7843642244C81500C60295 /* GoMainCollectionViewCell.m in Sources */,
 				1C78435E2244C7CE00C60295 /* BaseCollectionViewCell.m in Sources */,
 				1C7843282244B6BB00C60295 /* GoMainViewController.m in Sources */,
+				1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */,
 				1C7843362244B6BE00C60295 /* main.m in Sources */,
 				1C7843612244C7E700C60295 /* BaseTableViewCell.m in Sources */,
 				1C7843252244B6BB00C60295 /* AppDelegate.m in Sources */,
@@ -465,6 +525,7 @@
 		};
 		1C7843502244B6BE00C60295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17DBA9025AD08A945A634FAA /* Pods-Objective-c-Go.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -483,6 +544,7 @@
 		};
 		1C7843512244B6BE00C60295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 791B64E242988907C71208ED /* Pods-Objective-c-Go.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

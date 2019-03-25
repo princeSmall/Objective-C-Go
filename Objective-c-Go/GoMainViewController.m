@@ -8,15 +8,19 @@
 
 #import "GoMainViewController.h"
 #import "GoMainCollectionViewCell.h"
+#import "GoToolBarViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
-    GO_CONTROLS = 0
+    GO_TOOLBAR = 0,
+    GO_CONTROLS
 };
 @interface GoMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *goMainCollectionView;
 @property (nonatomic, strong) NSArray *goArray;
+@property (nonatomic, strong) NSArray *barArray;
 @property (nonatomic, strong) NSArray *controlsArray;
 @property (nonatomic, strong) NSDictionary *dictionary;
+
 @end
 
 static NSString *const headReusableIndetifier = @"headReusableIndetifier";
@@ -24,6 +28,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Objective-C-Go";
     [self.view addSubview:self.goMainCollectionView];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -35,11 +40,14 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
         UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headReusableIndetifier forIndexPath:indexPath];
-        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, M_WIDTH - 40, 50)];
+        UILabel *titleLabel = [UILabel new];
         titleLabel.textColor = [UIColor blackColor];
         titleLabel.font = [UIFont boldSystemFontOfSize:18.f];
-        titleLabel.text = self.goArray[indexPath.row];
+        titleLabel.text = self.goArray[indexPath.section];
         [view addSubview:titleLabel];
+        [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(UIEdgeInsetsMake(0, 20, 0, 20));
+        }];
         view.backgroundColor = RGB(238, 240, 245);
         return view;
     }else
@@ -56,6 +64,10 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GoMainCollectionViewCell *cell = [GoMainCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
     switch (indexPath.section) {
+        case GO_TOOLBAR:{
+            [cell updateCurrentUI:self.barArray[indexPath.row]];
+        }
+            break;
         case GO_CONTROLS:{
             [cell updateCurrentUI:self.controlsArray[indexPath.row]];
         }
@@ -66,10 +78,22 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
     }
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case GO_TOOLBAR:{
+            GoToolBarViewController *goToolBar = [GoToolBarViewController new];
+            [self.navigationController pushViewController:goToolBar animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 - (UICollectionView *)goMainCollectionView{
     if (!_goMainCollectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
-        flowLayout.minimumLineSpacing = 10;
+        flowLayout.minimumLineSpacing = 0;
         flowLayout.minimumInteritemSpacing = 0;
         _goMainCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
         _goMainCollectionView.delegate = self;
@@ -85,12 +109,20 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 }
 - (NSArray *)goArray{
     if (!_goArray) {
-        _goArray = [NSArray arrayWithObjects:@"控件",@"属性", nil];
+        _goArray = [NSArray arrayWithObjects:@"UIToolBar",@"控件",@"属性", nil];
     }
     return _goArray;
 }
+- (NSArray *)barArray{
+    if (!_barArray) {
+        
+        _barArray = [NSArray arrayWithObjects:@"UINavigationBar",@"UINavigationController",@"UINavigationItem",@"UITabBar",@"UITabBarController",@"UITabBarItem",@"UIToolbar",@"UISearchBar", nil];
+    }
+    return _barArray;
+}
 - (NSArray *)controlsArray{
     if (!_controlsArray) {
+        
         _controlsArray = [NSArray arrayWithObjects:@"UITableView",@"UICollectionView",@"UISplitViewController", nil];
     }
     return _controlsArray;
@@ -98,7 +130,8 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (NSDictionary *)dictionary{
     if (!_dictionary) {
         _dictionary = @{
-                        [NSString stringWithFormat:@"%ld",(long)GO_CONTROLS]:[NSString stringWithFormat:@"%ld",self.controlsArray.count]
+                        [NSString stringWithFormat:@"%ld",(long)GO_CONTROLS]:[NSString stringWithFormat:@"%ld",self.controlsArray.count],
+                        [NSString stringWithFormat:@"%ld",(long)GO_TOOLBAR]:[NSString stringWithFormat:@"%ld",self.barArray.count]
                         };
     }
     return _dictionary;

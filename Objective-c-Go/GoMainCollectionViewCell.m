@@ -21,10 +21,13 @@
     self.layer.borderColor = RGB(220, 220, 220).CGColor;
     self.layer.borderWidth = 0.5;
     [self.contentView addSubview:self.titleLabel];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 5, 0, 5));
+    }];
 }
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc]initWithFrame:self.contentView.bounds];
+        _titleLabel = [UILabel new];
         _titleLabel.textColor = [UIColor blackColor];
         _titleLabel.numberOfLines = 0;
         _titleLabel.lineBreakMode = NSLineBreakByCharWrapping;
