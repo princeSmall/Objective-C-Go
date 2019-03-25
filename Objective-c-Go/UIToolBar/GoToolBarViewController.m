@@ -21,8 +21,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
 //    self.title = @"NavigationBar";
     self.navigationItem.title = @"NavigationBar";
-    [self toolBarItem];
-    [self searchBar];
+//    [self toolBarItem];
+//    [self searchBar];
     // Do any additional setup after loading the view.
 }
 - (void)searchBar{
