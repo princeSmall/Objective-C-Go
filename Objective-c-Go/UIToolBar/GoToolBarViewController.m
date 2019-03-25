@@ -10,7 +10,7 @@
 //
 
 #import "GoToolBarViewController.h"
-@interface GoToolBarViewController ()<UITabBarDelegate,UINavigationBarDelegate>
+@interface GoToolBarViewController ()<UITabBarDelegate,UINavigationBarDelegate,UISearchBarDelegate>
 
 @end
 
@@ -22,12 +22,29 @@
 //    self.title = @"NavigationBar";
     self.navigationItem.title = @"NavigationBar";
 //    [self toolBarItem];
-//    [self searchBar];
+    [self searchBar];
     // Do any additional setup after loading the view.
 }
 - (void)searchBar{
     UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 300, M_WIDTH, 50)];
+    searchBar.delegate = self;
+    searchBar.showsCancelButton = YES;
+    searchBar.showsSearchResultsButton = YES;
+    searchBar.showsBookmarkButton = YES;
+    searchBar.placeholder = @"搜一搜";
+//    searchBar.barTintColor = [UIColor whiteColor];
+//    searchBar.searchBarStyle = UISearchBarStyleProminent;
+//    searchBar.tintColor = [UIColor whiteColor];
     [self.view addSubview:searchBar];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
 }
 - (void)toolBarItem{
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
