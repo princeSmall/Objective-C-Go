@@ -9,6 +9,7 @@
 #import "GoMainViewController.h"
 #import "GoMainCollectionViewCell.h"
 #import "GoToolBarViewController.h"
+#import "GoSearchBarViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_TOOLBAR = 0,
@@ -81,8 +82,15 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case GO_TOOLBAR:{
-            GoToolBarViewController *goToolBar = [GoToolBarViewController new];
-            [self.navigationController pushViewController:goToolBar animated:YES];
+            if (indexPath.row == self.barArray.count - 1) {
+                [self.navigationController pushViewController:[GoSearchBarViewController new] animated:YES];
+            }else if (indexPath.row == 1){
+                GoToolBarViewController *goToolBar = [GoToolBarViewController new];
+                [self.navigationController pushViewController:goToolBar animated:YES];
+            }else if (indexPath.row == 2){
+                
+            }
+            
         }
             break;
             
