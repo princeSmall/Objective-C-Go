@@ -10,10 +10,11 @@
 #import "GoMainCollectionViewCell.h"
 #import "GoToolBarViewController.h"
 #import "GoSearchBarViewController.h"
+#import "GoTabBarMainViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_TOOLBAR = 0,
-    GO_CONTROLS
+    GO_CONTROLS,
 };
 @interface GoMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *goMainCollectionView;
@@ -73,6 +74,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
             [cell updateCurrentUI:self.controlsArray[indexPath.row]];
         }
             break;
+       
             
         default:
             break;
@@ -89,6 +91,9 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
                 [self.navigationController pushViewController:goToolBar animated:YES];
             }else if (indexPath.row == 2){
                 
+            }else if (indexPath.row == 4){
+                GoTabBarMainViewController *tabBar = [GoTabBarMainViewController new];
+                [self.navigationController pushViewController:tabBar animated:YES];
             }
             
         }

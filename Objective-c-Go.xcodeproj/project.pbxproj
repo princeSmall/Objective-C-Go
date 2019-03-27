@@ -11,6 +11,10 @@
 		1C6BCF722249B7B500EB3746 /* GoSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF712249B7B500EB3746 /* GoSearchBarViewController.m */; };
 		1C6BCF7C2249FBFB00EB3746 /* searchBar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6BCF7B2249FBFA00EB3746 /* searchBar.pdf */; };
 		1C6BCF7E2249FC6200EB3746 /* searchbar.html in Resources */ = {isa = PBXBuildFile; fileRef = 1C6BCF7D2249FC6200EB3746 /* searchbar.html */; };
+		1C6BCF84224B131300EB3746 /* GoTabbarChildOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF83224B131300EB3746 /* GoTabbarChildOneViewController.m */; };
+		1C6BCF8A224B136700EB3746 /* GoTabbarChildTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF89224B136700EB3746 /* GoTabbarChildTwoViewController.m */; };
+		1C6BCF8D224B155900EB3746 /* GoTabBarMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF8C224B155900EB3746 /* GoTabBarMainViewController.m */; };
+		1C6BCF90224B1BB900EB3746 /* GoTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF8F224B1BB900EB3746 /* GoTabBar.m */; };
 		1C7843252244B6BB00C60295 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843242244B6BB00C60295 /* AppDelegate.m */; };
 		1C7843282244B6BB00C60295 /* GoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843272244B6BB00C60295 /* GoMainViewController.m */; };
 		1C78432B2244B6BB00C60295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7843292244B6BB00C60295 /* Main.storyboard */; };
@@ -51,6 +55,14 @@
 		1C6BCF712249B7B500EB3746 /* GoSearchBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoSearchBarViewController.m; sourceTree = "<group>"; };
 		1C6BCF7B2249FBFA00EB3746 /* searchBar.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = searchBar.pdf; sourceTree = "<group>"; };
 		1C6BCF7D2249FC6200EB3746 /* searchbar.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = searchbar.html; sourceTree = "<group>"; };
+		1C6BCF82224B131300EB3746 /* GoTabbarChildOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoTabbarChildOneViewController.h; sourceTree = "<group>"; };
+		1C6BCF83224B131300EB3746 /* GoTabbarChildOneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoTabbarChildOneViewController.m; sourceTree = "<group>"; };
+		1C6BCF88224B136700EB3746 /* GoTabbarChildTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoTabbarChildTwoViewController.h; sourceTree = "<group>"; };
+		1C6BCF89224B136700EB3746 /* GoTabbarChildTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoTabbarChildTwoViewController.m; sourceTree = "<group>"; };
+		1C6BCF8B224B155900EB3746 /* GoTabBarMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoTabBarMainViewController.h; sourceTree = "<group>"; };
+		1C6BCF8C224B155900EB3746 /* GoTabBarMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoTabBarMainViewController.m; sourceTree = "<group>"; };
+		1C6BCF8E224B1BB900EB3746 /* GoTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoTabBar.h; sourceTree = "<group>"; };
+		1C6BCF8F224B1BB900EB3746 /* GoTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoTabBar.m; sourceTree = "<group>"; };
 		1C7843202244B6BB00C60295 /* Objective-c-Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Objective-c-Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7843232244B6BB00C60295 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1C7843242244B6BB00C60295 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,6 +124,14 @@
 				1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */,
 				1C6BCF702249B7B500EB3746 /* GoSearchBarViewController.h */,
 				1C6BCF712249B7B500EB3746 /* GoSearchBarViewController.m */,
+				1C6BCF8B224B155900EB3746 /* GoTabBarMainViewController.h */,
+				1C6BCF8C224B155900EB3746 /* GoTabBarMainViewController.m */,
+				1C6BCF8E224B1BB900EB3746 /* GoTabBar.h */,
+				1C6BCF8F224B1BB900EB3746 /* GoTabBar.m */,
+				1C6BCF82224B131300EB3746 /* GoTabbarChildOneViewController.h */,
+				1C6BCF83224B131300EB3746 /* GoTabbarChildOneViewController.m */,
+				1C6BCF88224B136700EB3746 /* GoTabbarChildTwoViewController.h */,
+				1C6BCF89224B136700EB3746 /* GoTabbarChildTwoViewController.m */,
 			);
 			path = UIToolBar;
 			sourceTree = "<group>";
@@ -366,10 +386,14 @@
 				1C7843642244C81500C60295 /* GoMainCollectionViewCell.m in Sources */,
 				1C78435E2244C7CE00C60295 /* BaseCollectionViewCell.m in Sources */,
 				1C7843282244B6BB00C60295 /* GoMainViewController.m in Sources */,
+				1C6BCF8D224B155900EB3746 /* GoTabBarMainViewController.m in Sources */,
 				1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */,
+				1C6BCF90224B1BB900EB3746 /* GoTabBar.m in Sources */,
 				1C7843362244B6BE00C60295 /* main.m in Sources */,
 				1C6BCF722249B7B500EB3746 /* GoSearchBarViewController.m in Sources */,
 				1C7843612244C7E700C60295 /* BaseTableViewCell.m in Sources */,
+				1C6BCF8A224B136700EB3746 /* GoTabbarChildTwoViewController.m in Sources */,
+				1C6BCF84224B131300EB3746 /* GoTabbarChildOneViewController.m in Sources */,
 				1C7843252244B6BB00C60295 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
