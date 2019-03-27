@@ -1,22 +1,27 @@
 //
-//  GoTabbarChildOneViewController.m
+//  GoTabbarChildMessageViewController.m
 //  Objective-c-Go
 //
 //  Created by le tong on 2019/3/27.
 //  Copyright © 2019 iOS. All rights reserved.
 //
 
-#import "GoTabbarChildOneViewController.h"
+#import "GoTabbarChildMessageViewController.h"
 
-@interface GoTabbarChildOneViewController ()
+@interface GoTabbarChildMessageViewController ()
 
 @end
 
-@implementation GoTabbarChildOneViewController
+@implementation GoTabbarChildMessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.pdfPath = @"tabbar.html";
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(64);
+        make.left.right.bottom.mas_equalTo(0);
+    }];
     // Do any additional setup after loading the view.
 }
 

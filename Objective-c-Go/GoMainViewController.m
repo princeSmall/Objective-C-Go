@@ -11,6 +11,8 @@
 #import "GoToolBarViewController.h"
 #import "GoSearchBarViewController.h"
 #import "GoTabBarMainViewController.h"
+#import "GoNavigationViewController.h"
+#import "GoNavigationChildViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_TOOLBAR = 0,
@@ -32,6 +34,8 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
     [super viewDidLoad];
     self.title = @"Objective-C-Go";
     [self.view addSubview:self.goMainCollectionView];
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -84,14 +88,16 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case GO_TOOLBAR:{
-            if (indexPath.row == self.barArray.count - 1) {
+            if (indexPath.row == 3) {
                 [self.navigationController pushViewController:[GoSearchBarViewController new] animated:YES];
-            }else if (indexPath.row == 1){
+            }else if (indexPath.row == 2){
                 GoToolBarViewController *goToolBar = [GoToolBarViewController new];
                 [self.navigationController pushViewController:goToolBar animated:YES];
-            }else if (indexPath.row == 2){
-                
-            }else if (indexPath.row == 4){
+            }else if (indexPath.row == 0){
+                GoNavigationChildViewController *goNavigationChild = [GoNavigationChildViewController new];
+//                GoNavigationViewController *goNavigation = [[GoNavigationViewController alloc]initWithRootViewController:goNavigationChild];
+                 [self.navigationController pushViewController:goNavigationChild animated:YES];
+            }else if (indexPath.row == 1){
                 GoTabBarMainViewController *tabBar = [GoTabBarMainViewController new];
                 [self.navigationController pushViewController:tabBar animated:YES];
             }
@@ -129,7 +135,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (NSArray *)barArray{
     if (!_barArray) {
         
-        _barArray = [NSArray arrayWithObjects:@"UINavigationBar",@"UINavigationController",@"UINavigationItem",@"UITabBar",@"UITabBarController",@"UITabBarItem",@"UIToolbar",@"UISearchBar", nil];
+        _barArray = [NSArray arrayWithObjects:@"UINavigationController",@"UITabBarController",@"UIToolbar",@"UISearchBar", nil];
     }
     return _barArray;
 }

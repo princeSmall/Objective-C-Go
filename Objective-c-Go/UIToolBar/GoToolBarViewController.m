@@ -10,7 +10,7 @@
 //
 
 #import "GoToolBarViewController.h"
-@interface GoToolBarViewController ()<UITabBarDelegate,UINavigationBarDelegate>
+@interface GoToolBarViewController ()
 
 @end
 
@@ -21,7 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
 //    self.title = @"NavigationBar";
     self.navigationItem.title = @"NavigationBar";
-//    [self toolBarItem];
+    [self toolBarItem];
     
     // Do any additional setup after loading the view.
 }
@@ -63,69 +63,6 @@
     
 }
 
-/**
- 自定义返回图片和文字
- */
-- (void)backItem{
-    
-    [self.navigationController.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"icon_back"]];
-    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"icon_back"]];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleDone target:nil action:nil];
-    
-}
-
-/**
- 自定义左右按钮和图片
- */
-- (void)leftRightItem{
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon_back"] style:UIBarButtonItemStyleDone target:self action:@selector(touchLeftBarItem)];
-    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc]initWithTitle:@"right" style:UIBarButtonItemStyleDone target:self action:@selector(touchRightBarItem)];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-    [self.navigationController.navigationBar setTintColor:[UIColor redColor]];
-    self.navigationController.navigationBar.barTintColor = [UIColor orangeColor];
-}
-
-/**
- 自定义TabBarItem
- */
-- (void)tabbarItem{
-    UITabBar *bar = [[UITabBar alloc]initWithFrame:CGRectMake(0, M_HEIGHT - 49, M_WIDTH, 49)];
-    UITabBarItem *itemOne = [[UITabBarItem alloc]initWithTitle:@"消息" image:[UIImage imageNamed:@"icon_message"] selectedImage:[UIImage imageNamed:@"icon_message_S"]];
-    UITabBarItem *itemTwo = [[UITabBarItem alloc]initWithTitle:@"设置" image:[UIImage imageNamed:@"icon_set"] selectedImage:[UIImage imageNamed:@"icon_set_S"]];
-    bar.items = @[itemOne,itemTwo];
-    bar.delegate = self;
-    [self.view addSubview:bar];
-}
-
-/**
- 自定义NavigationBarItem
- */
-- (void)navigationBarItem{
-        UINavigationBar *navBar = [[UINavigationBar alloc]initWithFrame:CGRectMake(0, 0, M_WIDTH, 84)];
-        UINavigationItem *itemRight = [[UINavigationItem alloc]initWithTitle:@"Right"];
-        UINavigationItem *itemCenter = [[UINavigationItem alloc]initWithTitle:@"Center"];
-        UINavigationItem *itemLeft = [[UINavigationItem alloc]initWithTitle:@"Left"];
-    
-        navBar.items = @[itemRight,itemCenter,itemLeft];
-        navBar.delegate = self;
-        [self.view addSubview:navBar];
-}
-- (void)touchLeftBarItem{
-    
-}
-- (void)touchRightBarItem{
-    
-}
-- (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item{
-    NSLog(@"1");
-}
-- (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item{
-    NSLog(@"2");
-}
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    
-}
 
 
 @end

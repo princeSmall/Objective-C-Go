@@ -7,8 +7,8 @@
 //
 
 #import "GoTabBarMainViewController.h"
-#import "GoTabbarChildOneViewController.h"
-#import "GoTabbarChildTwoViewController.h"
+#import "GoTabbarChildSetViewController.h"
+#import "GoTabbarChildMessageViewController.h"
 
 @interface GoTabBarMainViewController ()
 
@@ -23,12 +23,12 @@
     // Do any additional setup after loading the view.
 }
 - (void)setChildViewController{
-    GoTabbarChildOneViewController *one = [GoTabbarChildOneViewController new];
-    GoTabbarChildTwoViewController *two = [GoTabbarChildTwoViewController new];
-    GoTabbarChildOneViewController *three = [GoTabbarChildOneViewController new];
-    GoTabbarChildOneViewController *four = [GoTabbarChildOneViewController new];
-    GoTabbarChildOneViewController *five = [GoTabbarChildOneViewController new];
-    GoTabbarChildOneViewController *six = [GoTabbarChildOneViewController new];
+    GoTabbarChildMessageViewController *one = [GoTabbarChildMessageViewController new];
+    GoTabbarChildSetViewController *two = [GoTabbarChildSetViewController new];
+    GoTabbarChildMessageViewController *three = [GoTabbarChildMessageViewController new];
+    GoTabbarChildMessageViewController *four = [GoTabbarChildMessageViewController new];
+    GoTabbarChildMessageViewController *five = [GoTabbarChildMessageViewController new];
+    GoTabbarChildMessageViewController *six = [GoTabbarChildMessageViewController new];
     UITabBarItem *tabbarItemOne = [[UITabBarItem alloc]initWithTitle:@"ONE" image:[UIImage imageNamed:@"icon_message"] selectedImage:[UIImage imageNamed:@"icon_message_S"]];
     UITabBarItem *tabbarItemTwo = [[UITabBarItem alloc]initWithTitle:@"TWO" image:[UIImage imageNamed:@"icon_set"] selectedImage:[UIImage imageNamed:@"icon_set_S"]];
     UITabBarItem *tabbarItemThree = [[UITabBarItem alloc]initWithTitle:@"THREE" image:[UIImage imageNamed:@"icon_message"] selectedImage:[UIImage imageNamed:@"icon_message_S"]];
@@ -47,16 +47,16 @@
     self.tabBar.tintColor = [UIColor orangeColor];
     self.tabBar.barTintColor = [UIColor darkGrayColor];
 //    修改文字和图片的位置
-    for (UITabBarItem * item in self.tabBar.items) {
-        item.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
-    }
-    [[UITabBarItem appearance]setTitlePositionAdjustment:UIOffsetMake(0, -8)];
+//    for (UITabBarItem * item in self.tabBar.items) {
+//        item.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
+//    }
+//    [[UITabBarItem appearance]setTitlePositionAdjustment:UIOffsetMake(0, -8)];
     
 //  添加一个有颜色的View
-    UIView * view = [UIView new];
-    view.backgroundColor = [UIColor redColor];
-    view.frame = self.tabBar.bounds;
-    [[UITabBar appearance] insertSubview:view atIndex:0];
+//    UIView * view = [UIView new];
+//    view.backgroundColor = [UIColor redColor];
+//    view.frame = self.tabBar.bounds;
+//    [[UITabBar appearance] insertSubview:view atIndex:0];
     
 }
 

@@ -7,13 +7,12 @@
 //
 
 #import "GoSearchBarViewController.h"
-#import <QuickLook/QuickLook.h>
-#import <WebKit/WebKit.h>
+
 
 @interface GoSearchBarViewController ()<UISearchBarDelegate>
 @property (nonatomic, strong) UISearchBar *defaultSearchBar;
 @property (nonatomic, strong) UISearchBar *changeSearchBar;
-@property (nonatomic, strong) WKWebView *webView;
+
 @end
 
 @implementation GoSearchBarViewController
@@ -29,6 +28,7 @@
     // Do any additional setup after loading the view.
 }
 - (void)layoutCurrentUI{
+    self.pdfPath = @"searchbar.html";
     [self.view addSubview:self.defaultSearchBar];
     [self.view addSubview:self.changeSearchBar];
     [self.view addSubview:self.webView];
@@ -50,22 +50,6 @@
     }];
     
     
-}
-- (WKWebView *)webView{
-    if (!_webView) {
-        _webView = [[WKWebView alloc]init];
-        //获取bundlePath 路径
-        NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
-        //获取本地html目录 baseUrl
-        NSURL *baseUrl = [NSURL fileURLWithPath: bundlePath isDirectory: YES];
-        //html 路径
-        NSString *indexPath = [NSString stringWithFormat: @"%@/searchbar.html", bundlePath];
-        //html 文件中内容
-        NSString *indexContent = [NSString stringWithContentsOfFile: indexPath encoding: NSUTF8StringEncoding error:nil];
-        //显示内容
-        [_webView loadHTMLString: indexContent baseURL: baseUrl];
-    }
-    return _webView;
 }
 - (UISearchBar *)defaultSearchBar{
     if (!_defaultSearchBar) {

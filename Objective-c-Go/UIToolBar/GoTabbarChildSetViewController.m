@@ -1,21 +1,21 @@
 //
-//  GoTabbarChildTwoViewController.m
+//  GoTabbarChildSetViewController.m
 //  
 //
 //  Created by le tong on 2019/3/27.
 //
 
-#import "GoTabbarChildTwoViewController.h"
+#import "GoTabbarChildSetViewController.h"
 
-@interface GoTabbarChildTwoViewController ()
+@interface GoTabbarChildSetViewController ()
 
 @end
 
-@implementation GoTabbarChildTwoViewController
+@implementation GoTabbarChildSetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
 }
 

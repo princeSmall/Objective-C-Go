@@ -1,8 +1,8 @@
 //
-//  GoSearchBarViewController.h
+//  GoTabbarChildMessageViewController.h
 //  Objective-c-Go
 //
-//  Created by le tong on 2019/3/26.
+//  Created by le tong on 2019/3/27.
 //  Copyright © 2019 iOS. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GoSearchBarViewController : BaseViewController
+@interface GoTabbarChildMessageViewController : BaseViewController
 
 @end
 
