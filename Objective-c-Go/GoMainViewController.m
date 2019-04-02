@@ -13,6 +13,7 @@
 #import "GoTabBarMainViewController.h"
 #import "GoNavigationViewController.h"
 #import "GoNavigationChildViewController.h"
+#import "GoShareFunctionViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_UIToolbar = 0,
@@ -95,6 +96,14 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
                 [self.navigationController pushViewController:tabBar animated:YES];
             }
             
+        }
+            break;
+        case GO_Function:{
+            if (indexPath.row == 0) {
+              [self.navigationController pushViewController:[GoShareFunctionViewController new] animated:YES];
+            }else if (indexPath.row == 1){
+                
+            }
         }
             break;
             

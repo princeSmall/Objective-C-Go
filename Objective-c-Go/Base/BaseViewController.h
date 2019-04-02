@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseViewController : UIViewController
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) NSString *pdfPath;
-
+@property (nonatomic, strong) UIButton *itemButton;
+- (void)pushToNewsCenterPage;
 @end
 
 NS_ASSUME_NONNULL_END

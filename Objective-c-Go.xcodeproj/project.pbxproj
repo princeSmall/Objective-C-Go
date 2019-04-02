@@ -31,6 +31,13 @@
 		1C78435E2244C7CE00C60295 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C78435D2244C7CE00C60295 /* BaseCollectionViewCell.m */; };
 		1C7843612244C7E700C60295 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843602244C7E700C60295 /* BaseTableViewCell.m */; };
 		1C7843642244C81500C60295 /* GoMainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7843632244C81500C60295 /* GoMainCollectionViewCell.m */; };
+		1CE8223822534CD800955223 /* GoShareFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8223722534CD800955223 /* GoShareFunctionViewController.m */; };
+		1CE8223C225350CF00955223 /* GoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE8223B225350CF00955223 /* GoCollectionViewController.m */; };
+		1CE8223E2253597E00955223 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE8223D2253597E00955223 /* libsqlite3.tbd */; };
+		1CE822402253598500955223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE8223F2253598500955223 /* CoreGraphics.framework */; };
+		1CE822422253599500955223 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE822412253599500955223 /* SystemConfiguration.framework */; };
+		1CE82244225359D000955223 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE82243225359D000955223 /* libc++.tbd */; };
+		1CE82246225359DE00955223 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE82245225359DE00955223 /* libz.tbd */; };
 		9E4C2437E195DC99B1C5CC9C /* libPods-Objective-c-Go.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +105,15 @@
 		1C7843622244C81500C60295 /* GoMainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoMainCollectionViewCell.h; sourceTree = "<group>"; };
 		1C7843632244C81500C60295 /* GoMainCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoMainCollectionViewCell.m; sourceTree = "<group>"; };
 		1C7843652244D2FB00C60295 /* GoPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoPrefixHeader.pch; sourceTree = "<group>"; };
+		1CE8223622534CD800955223 /* GoShareFunctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoShareFunctionViewController.h; sourceTree = "<group>"; };
+		1CE8223722534CD800955223 /* GoShareFunctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoShareFunctionViewController.m; sourceTree = "<group>"; };
+		1CE8223A225350CF00955223 /* GoCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoCollectionViewController.h; sourceTree = "<group>"; };
+		1CE8223B225350CF00955223 /* GoCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoCollectionViewController.m; sourceTree = "<group>"; };
+		1CE8223D2253597E00955223 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1CE8223F2253598500955223 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1CE822412253599500955223 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1CE82243225359D000955223 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		1CE82245225359DE00955223 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Objective-c-Go.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		791B64E242988907C71208ED /* Pods-Objective-c-Go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Objective-c-Go.release.xcconfig"; path = "Pods/Target Support Files/Pods-Objective-c-Go/Pods-Objective-c-Go.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +123,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE82246225359DE00955223 /* libz.tbd in Frameworks */,
+				1CE82244225359D000955223 /* libc++.tbd in Frameworks */,
+				1CE822422253599500955223 /* SystemConfiguration.framework in Frameworks */,
+				1CE822402253598500955223 /* CoreGraphics.framework in Frameworks */,
+				1CE8223E2253597E00955223 /* libsqlite3.tbd in Frameworks */,
 				9E4C2437E195DC99B1C5CC9C /* libPods-Objective-c-Go.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +204,8 @@
 		1C7843222244B6BB00C60295 /* Objective-c-Go */ = {
 			isa = PBXGroup;
 			children = (
+				1CE82239225350AD00955223 /* UIView */,
+				1CE8223522534C9800955223 /* Function */,
 				1C6BCF91224B46CA00EB3746 /* Tools */,
 				1C6BCF6C2248AB7400EB3746 /* UIToolBar */,
 				1C78435B2244C7B000C60295 /* Base */,
@@ -237,6 +260,24 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		1CE8223522534C9800955223 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8223622534CD800955223 /* GoShareFunctionViewController.h */,
+				1CE8223722534CD800955223 /* GoShareFunctionViewController.m */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		1CE82239225350AD00955223 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				1CE8223A225350CF00955223 /* GoCollectionViewController.h */,
+				1CE8223B225350CF00955223 /* GoCollectionViewController.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		3CC372197A161DE676880CD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +290,11 @@
 		D82BEB4EEAAA61620DE42BDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CE82245225359DE00955223 /* libz.tbd */,
+				1CE82243225359D000955223 /* libc++.tbd */,
+				1CE822412253599500955223 /* SystemConfiguration.framework */,
+				1CE8223F2253598500955223 /* CoreGraphics.framework */,
+				1CE8223D2253597E00955223 /* libsqlite3.tbd */,
 				22DB765D8758751353C72E0A /* libPods-Objective-c-Go.a */,
 			);
 			name = Frameworks;
@@ -265,6 +311,7 @@
 				1C78431C2244B6BB00C60295 /* Sources */,
 				1C78431D2244B6BB00C60295 /* Frameworks */,
 				1C78431E2244B6BB00C60295 /* Resources */,
+				58692392F09300B3C9960AC3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -402,6 +449,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		58692392F09300B3C9960AC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Objective-c-Go/Pods-Objective-c-Go-resources.sh",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Objective-c-Go/Pods-Objective-c-Go-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -414,10 +479,12 @@
 				1C78435E2244C7CE00C60295 /* BaseCollectionViewCell.m in Sources */,
 				1C7843282244B6BB00C60295 /* GoMainViewController.m in Sources */,
 				1C6BCF9F224B5A0C00EB3746 /* GoNavigationViewController.m in Sources */,
+				1CE8223822534CD800955223 /* GoShareFunctionViewController.m in Sources */,
 				1C6BCF8D224B155900EB3746 /* GoTabBarMainViewController.m in Sources */,
 				1C6BCF97224B479600EB3746 /* GoTabbarChildMessageViewController.m in Sources */,
 				1C6BCF94224B473400EB3746 /* BaseViewController.m in Sources */,
 				1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */,
+				1CE8223C225350CF00955223 /* GoCollectionViewController.m in Sources */,
 				1C6BCF9A224B47AE00EB3746 /* GoTabbarChildSetViewController.m in Sources */,
 				1C6BCFA5224B65E300EB3746 /* GoNavigationMainViewController.m in Sources */,
 				1C7843362244B6BE00C60295 /* main.m in Sources */,

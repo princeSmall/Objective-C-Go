@@ -11,7 +11,17 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
 #import <Masonry.h>
+
+
+#define UMAPPKey @"5ca320ee61f564130b0011d6"
+#define WXAPPID  @"wxbe7ca989d294dba2"
+#define WXAPPSECRET @"19400cfb74f44dd018321e1530d7b103"
+#define QQAPPKEY @"EhCPepg26hWIVB4J"
+#define QQAPPID  @"1108533833"
+
 #define M_WIDTH [UIScreen mainScreen].bounds.size.width
 #define M_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define RGB(R,G,B) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:1.0]

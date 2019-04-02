@@ -17,6 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:self.itemButton];
     // Do any additional setup after loading the view.
 }
 
@@ -36,14 +38,18 @@
     }
     return _webView;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIButton *)itemButton{
+    if (!_itemButton) {
+        _itemButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        _itemButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        [_itemButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        _itemButton.titleLabel.font = [UIFont systemFontOfSize:12];
+        [_itemButton addTarget:self action:@selector(pushToNewsCenterPage) forControlEvents:UIControlEventTouchUpInside];
+        _itemButton.hidden = YES;
+    }
+    return _itemButton;
 }
-*/
-
+- (void)pushToNewsCenterPage{
+    
+}
 @end
