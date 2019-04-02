@@ -15,14 +15,18 @@
 #import "GoNavigationChildViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
-    GO_TOOLBAR = 0,
-    GO_CONTROLS,
+    GO_UIToolbar = 0,
+    GO_UIView,
+    GO_UIControl,
+    GO_Function
 };
 @interface GoMainViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *goMainCollectionView;
 @property (nonatomic, strong) NSArray *goArray;
 @property (nonatomic, strong) NSArray *barArray;
+@property (nonatomic, strong) NSArray *viewArray;
 @property (nonatomic, strong) NSArray *controlsArray;
+@property (nonatomic, strong) NSArray *functionArray;
 @property (nonatomic, strong) NSDictionary *dictionary;
 
 @end
@@ -39,9 +43,8 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    CGSize size = CGSizeMake(M_WIDTH, 50);
-    return size;
+- (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(M_WIDTH, 50);
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
@@ -64,30 +67,21 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
     return self.goArray.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    NSString *countString = [self.dictionary objectForKey:[NSString stringWithFormat:@"%ld",section]];
-    return countString.integerValue;
+    
+    return [self arrayFromDictionaryKey:section].count;
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GoMainCollectionViewCell *cell = [GoMainCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-    switch (indexPath.section) {
-        case GO_TOOLBAR:{
-            [cell updateCurrentUI:self.barArray[indexPath.row]];
-        }
-            break;
-        case GO_CONTROLS:{
-            [cell updateCurrentUI:self.controlsArray[indexPath.row]];
-        }
-            break;
-       
-            
-        default:
-            break;
-    }
+    NSInteger sec = indexPath.section;
+    NSInteger r = indexPath.row;
+    [cell updateCurrentUI:[self arrayFromDictionaryKey:sec][r]];
+   
     return cell;
 }
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case GO_TOOLBAR:{
+        case GO_UIToolbar:{
             if (indexPath.row == 3) {
                 [self.navigationController pushViewController:[GoSearchBarViewController new] animated:YES];
             }else if (indexPath.row == 2){
@@ -95,7 +89,6 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
                 [self.navigationController pushViewController:goToolBar animated:YES];
             }else if (indexPath.row == 0){
                 GoNavigationChildViewController *goNavigationChild = [GoNavigationChildViewController new];
-//                GoNavigationViewController *goNavigation = [[GoNavigationViewController alloc]initWithRootViewController:goNavigationChild];
                  [self.navigationController pushViewController:goNavigationChild animated:YES];
             }else if (indexPath.row == 1){
                 GoTabBarMainViewController *tabBar = [GoTabBarMainViewController new];
@@ -128,32 +121,56 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 }
 - (NSArray *)goArray{
     if (!_goArray) {
-        _goArray = [NSArray arrayWithObjects:@"UIToolBar",@"控件",@"属性", nil];
+        _goArray = @[@"UIToolBar",@"UIView",@"UIControl",@"Function"];
     }
     return _goArray;
 }
 - (NSArray *)barArray{
     if (!_barArray) {
         
-        _barArray = [NSArray arrayWithObjects:@"UINavigationController",@"UITabBarController",@"UIToolbar",@"UISearchBar", nil];
+        _barArray = @[@"UINavigationController",@"UITabBarController",@"UIToolbar",@"UISearchBar",];
     }
     return _barArray;
 }
 - (NSArray *)controlsArray{
     if (!_controlsArray) {
         
-        _controlsArray = [NSArray arrayWithObjects:@"UITableView",@"UICollectionView",@"UISplitViewController", nil];
+        _controlsArray = @[@"UIButton",@"UILabel",@"UITextField"];
     }
     return _controlsArray;
+}
+- (NSArray *)viewArray{
+    if (!_viewArray) {
+        
+        _viewArray = @[@"UITableView",@"UICollectionView",@"UISplitViewController"];
+    }
+    return _viewArray;
+}
+- (NSArray *)functionArray{
+    if (!_functionArray) {
+        _functionArray = @[@"Share",@"Chat"];
+    }
+    return _functionArray;
 }
 - (NSDictionary *)dictionary{
     if (!_dictionary) {
         _dictionary = @{
-                        [NSString stringWithFormat:@"%ld",(long)GO_CONTROLS]:[NSString stringWithFormat:@"%ld",self.controlsArray.count],
-                        [NSString stringWithFormat:@"%ld",(long)GO_TOOLBAR]:[NSString stringWithFormat:@"%ld",self.barArray.count]
+                        [self stringFromInter:GO_UIControl]:self.controlsArray,
+                        [self stringFromInter:GO_UIToolbar]:self.barArray,
+                        [self stringFromInter:GO_UIView]:self.viewArray,
+                        [self stringFromInter:GO_Function]:self.functionArray,
                         };
     }
     return _dictionary;
+}
+
+- (NSArray *)arrayFromDictionaryKey:(NSInteger)key{
+    NSArray *array = [self.dictionary objectForKey:[self stringFromInter:key]];
+    return [array copy];
+}
+
+- (NSString *)stringFromInter:(NSInteger)inter{
+    return [NSString stringWithFormat:@"%ld",inter];
 }
 
 
