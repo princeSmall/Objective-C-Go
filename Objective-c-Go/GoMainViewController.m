@@ -14,6 +14,7 @@
 #import "GoNavigationViewController.h"
 #import "GoNavigationChildViewController.h"
 #import "GoShareFunctionViewController.h"
+#import "GoCollectionViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_UIToolbar = 0,
@@ -103,6 +104,14 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
               [self.navigationController pushViewController:[GoShareFunctionViewController new] animated:YES];
             }else if (indexPath.row == 1){
                 
+            }
+        }
+            break;
+        case GO_UIView:{
+            if (indexPath.row == 0) {
+                
+            }else if (indexPath.row ==1){
+                [self.navigationController pushViewController:[GoCollectionViewController new] animated:YES];
             }
         }
             break;
