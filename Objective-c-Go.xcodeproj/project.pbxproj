@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C02FDB4225AE5710098811C /* GoFlexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDB3225AE5710098811C /* GoFlexCollectionViewCell.m */; };
 		1C02FDB7225AEF3A0098811C /* GoFlexFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDB6225AEF3A0098811C /* GoFlexFlowLayout.m */; };
+		1C02FDBB225B23BE0098811C /* GoControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDBA225B23BE0098811C /* GoControlViewController.m */; };
 		1C0897622254A3070079FCBD /* GoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0897612254A3070079FCBD /* GoCollectionViewCell.m */; };
 		1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */; };
 		1C6BCF722249B7B500EB3746 /* GoSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF712249B7B500EB3746 /* GoSearchBarViewController.m */; };
@@ -67,6 +68,8 @@
 		1C02FDB3225AE5710098811C /* GoFlexCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoFlexCollectionViewCell.m; sourceTree = "<group>"; };
 		1C02FDB5225AEF3A0098811C /* GoFlexFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoFlexFlowLayout.h; sourceTree = "<group>"; };
 		1C02FDB6225AEF3A0098811C /* GoFlexFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoFlexFlowLayout.m; sourceTree = "<group>"; };
+		1C02FDB9225B23BE0098811C /* GoControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoControlViewController.h; sourceTree = "<group>"; };
+		1C02FDBA225B23BE0098811C /* GoControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoControlViewController.m; sourceTree = "<group>"; };
 		1C0897602254A3070079FCBD /* GoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoCollectionViewCell.h; sourceTree = "<group>"; };
 		1C0897612254A3070079FCBD /* GoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoCollectionViewCell.m; sourceTree = "<group>"; };
 		1C6BCF6D2248ABD800EB3746 /* GoToolBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToolBarViewController.h; sourceTree = "<group>"; };
@@ -158,6 +161,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C02FDB8225B23900098811C /* UIControl */ = {
+			isa = PBXGroup;
+			children = (
+				1C02FDB9225B23BE0098811C /* GoControlViewController.h */,
+				1C02FDBA225B23BE0098811C /* GoControlViewController.m */,
+			);
+			path = UIControl;
+			sourceTree = "<group>";
+		};
 		1C6BCF6C2248AB7400EB3746 /* UIToolBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +225,7 @@
 		1C7843222244B6BB00C60295 /* Objective-c-Go */ = {
 			isa = PBXGroup;
 			children = (
+				1C02FDB8225B23900098811C /* UIControl */,
 				1CE82239225350AD00955223 /* UIView */,
 				1CE8223522534C9800955223 /* Function */,
 				1C6BCF91224B46CA00EB3746 /* Tools */,
@@ -489,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C02FDBB225B23BE0098811C /* GoControlViewController.m in Sources */,
 				1C78432E2244B6BB00C60295 /* Objective_c_Go.xcdatamodeld in Sources */,
 				1C02FDB7225AEF3A0098811C /* GoFlexFlowLayout.m in Sources */,
 				1C7843642244C81500C60295 /* GoMainCollectionViewCell.m in Sources */,
