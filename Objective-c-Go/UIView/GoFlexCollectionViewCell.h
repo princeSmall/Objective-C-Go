@@ -1,8 +1,8 @@
 //
-//  GoCollectionViewCell.h
+//  GoFlexCollectionViewCell.h
 //  Objective-c-Go
 //
-//  Created by le tong on 2019/4/3.
+//  Created by le tong on 2019/4/8.
 //  Copyright © 2019 iOS. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GoCollectionViewCell : BaseCollectionViewCell
-- (void)updateCurrentUI:(NSString *)title;
+@interface GoFlexCollectionViewCell : BaseCollectionViewCell
 + (CGFloat)cellHeightFromCurrentCellTitle:(NSString *)title;
+- (void)updateCurrentUI:(NSString *)title;
 @end
 
 NS_ASSUME_NONNULL_END

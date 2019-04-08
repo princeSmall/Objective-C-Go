@@ -8,10 +8,16 @@
 
 #import "GoCollectionViewController.h"
 #import "GoCollectionViewCell.h"
+#import "GoFlexCollectionViewCell.h"
+#import "GoFlexFlowLayout.h"
 
-@interface GoCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface GoCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+    NSInteger currentI;
+}
 @property (nonatomic, strong) UICollectionView *goCollectionView;
+@property (nonatomic, strong) UICollectionView *goFlexCollectionView;
 @property (nonatomic, strong) NSArray *goArray;
+@property (nonatomic, strong) NSArray *goFlexArray;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flow;
 @end
 
@@ -19,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    currentI = 0;
+    [self caculateGoFlexCollectionViewWidth];
     [self.view addSubview:self.goCollectionView];
     self.itemButton.hidden = NO;
     [self.itemButton setTitle:@"Horizontal" forState:UIControlStateNormal];
@@ -29,7 +37,36 @@
         make.right.mas_equalTo(-15);
         make.height.mas_equalTo(130.f);
     }];
+    [self.view addSubview:self.goFlexCollectionView];
+    [self.goFlexCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.goCollectionView.mas_bottom).offset(50);
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.height.mas_equalTo(55);
+    }];
     // Do any additional setup after loading the view.
+}
+- (void)caculateGoFlexCollectionViewWidth{
+    CGFloat currentWidth = 0.0;
+    for (NSInteger i = 0; i < self.goFlexArray.count; i ++) {
+        currentWidth = currentWidth + [self cellWidthFromCurrentCellTitle:self.goFlexArray[i]] + 10.f;
+        if (currentI == 1) {
+            if (currentWidth > M_WIDTH - 40) {
+                currentI = i - 1;
+                break;
+            }
+        }
+        if (currentWidth > M_WIDTH - 40) {
+            currentI = currentI +1;
+            currentWidth = [self cellWidthFromCurrentCellTitle:self.goFlexArray[i]] + 10.f;
+        }
+    }
+}
+
+- (CGFloat)cellWidthFromCurrentCellTitle:(NSString *)title{
+    /*计算宽度时要确定高度*/
+    CGRect rect = [title boundingRectWithSize:CGSizeMake(MAXFLOAT,15.f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.f]} context:nil];
+    return rect.size.width;
 }
 - (void)pushToNewsCenterPage{
     self.itemButton.selected = !self.itemButton.selected;
@@ -37,20 +74,57 @@
     [self.goCollectionView reloadData];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.goArray.count;
+    if ([collectionView isEqual:self.goCollectionView]) {
+         return self.goArray.count;
+    }else{
+        return self.goFlexArray.count;
+    }
+   
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    GoCollectionViewCell *cell = [GoCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
     NSInteger r = indexPath.row;
-    [cell updateCurrentUI:self.goArray[r]];
-    return cell;
+    if ([collectionView isEqual:self.goCollectionView]) {
+        GoCollectionViewCell *cell = [GoCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+        [cell updateCurrentUI:self.goArray[r]];
+        return cell;
+    }else{
+        if (r == 0) {
+            GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+            [cell updateCurrentUI:self.goFlexArray[r]];
+            return cell;
+        }else{
+            if (currentI != 1 && currentI == r) {
+                GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+                [cell updateCurrentUI:@"..."];
+                return cell;
+            }else{
+                GoCollectionViewCell *cell = [GoCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+                [cell updateCurrentUI:self.goFlexArray[r]];
+                return cell;
+            }
+           
+        }
+    }
 }
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if ([collectionView isEqual:self.goFlexCollectionView]) {
+        if (indexPath.row == 0) {
+            return CGSizeMake([GoFlexCollectionViewCell cellHeightFromCurrentCellTitle:self.goFlexArray[0]], 19);
+        }else
+        return CGSizeMake([GoCollectionViewCell cellHeightFromCurrentCellTitle:self.goFlexArray[indexPath.row]], 19);
+    }else
+    return CGSizeMake(105.f, 60.f);
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 10.f;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 10.f;
+}
+
 - (UICollectionView *)goCollectionView{
     if (!_goCollectionView) {
         self.flow = [[UICollectionViewFlowLayout alloc]init];
-        self.flow.itemSize = CGSizeMake(105.f, 60.f);
-        self.flow.minimumLineSpacing = 10.f;
-        self.flow.minimumInteritemSpacing = 10.f;
         self.flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         _goCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:self.flow];
         _goCollectionView.delegate = self;
@@ -60,11 +134,31 @@
     }
     return _goCollectionView;
 }
+- (UICollectionView *)goFlexCollectionView{
+    if (!_goFlexCollectionView) {
+        GoFlexFlowLayout *f = [GoFlexFlowLayout new];
+        _goFlexCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:f];
+        _goFlexCollectionView.delegate = self;
+        _goFlexCollectionView.dataSource = self;
+        _goFlexCollectionView.scrollEnabled = NO;
+        _goFlexCollectionView.backgroundColor = [UIColor whiteColor];
+        [_goFlexCollectionView registerClass:[GoFlexCollectionViewCell class] forCellWithReuseIdentifier:[GoFlexCollectionViewCell reuseIdentifier]];
+        [_goFlexCollectionView registerClass:[GoCollectionViewCell class] forCellWithReuseIdentifier:[GoCollectionViewCell reuseIdentifier]];
+        
+    }
+    return _goFlexCollectionView;
+}
 - (NSArray *)goArray{
     if (!_goArray) {
         _goArray = @[@"Red",@"Green",@"Blue",@"Orange",@"Black",@"Gray",@"alpha"];
     }
     return _goArray;
+}
+- (NSArray *)goFlexArray{
+    if (!_goFlexArray) {
+        _goFlexArray = @[@"最新的资讯如下：",@"最新的资讯",@"最新资讯",@"最新的",@"最新的资",@"Black",@"Gray",@"alpha",@"Red",@"Green",@"Blue",@"Orange"];
+    }
+    return _goFlexArray;
 }
 
 @end
