@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UICollectionView *goCollectionView;
 @property (nonatomic, strong) UICollectionView *goFlexCollectionView;
 @property (nonatomic, strong) NSArray *goArray;
-@property (nonatomic, strong) NSArray *goFlexArray;
+@property (nonatomic, strong) NSMutableArray *goFlexArray;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flow;
 @end
 
@@ -46,13 +46,25 @@
     }];
     // Do any additional setup after loading the view.
 }
+
+/**
+ 计算换行：
+ 获取第二行最后一个item
+ 看是否可以放下@"..."，如果放不下取代前一位item，如果能放下，取代当前位item
+ */
 - (void)caculateGoFlexCollectionViewWidth{
     CGFloat currentWidth = 0.0;
     for (NSInteger i = 0; i < self.goFlexArray.count; i ++) {
         currentWidth = currentWidth + [self cellWidthFromCurrentCellTitle:self.goFlexArray[i]] + 10.f;
         if (currentI == 1) {
             if (currentWidth > M_WIDTH - 40) {
-                currentI = i - 1;
+                if (currentWidth - [self cellWidthFromCurrentCellTitle:self.goFlexArray[i]] + [self cellWidthFromCurrentCellTitle:@"..."] > M_WIDTH - 40) {
+                    currentI = i - 1;
+                    [self.goFlexArray replaceObjectAtIndex:currentI withObject:@"..."];
+                }else{
+                    currentI = i ;
+                    [self.goFlexArray replaceObjectAtIndex:currentI withObject:@"..."];
+                }
                 break;
             }
         }
@@ -66,7 +78,7 @@
 - (CGFloat)cellWidthFromCurrentCellTitle:(NSString *)title{
     /*计算宽度时要确定高度*/
     CGRect rect = [title boundingRectWithSize:CGSizeMake(MAXFLOAT,15.f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.f]} context:nil];
-    return rect.size.width;
+    return rect.size.width + 5.f;
 }
 - (void)pushToNewsCenterPage{
     self.itemButton.selected = !self.itemButton.selected;
@@ -88,30 +100,20 @@
         [cell updateCurrentUI:self.goArray[r]];
         return cell;
     }else{
-        if (r == 0) {
+        if ((currentI != 1 && currentI == r) || r == 0) {
             GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
             [cell updateCurrentUI:self.goFlexArray[r]];
             return cell;
         }else{
-            if (currentI != 1 && currentI == r) {
-                GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-                [cell updateCurrentUI:@"..."];
-                return cell;
-            }else{
-                GoCollectionViewCell *cell = [GoCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-                [cell updateCurrentUI:self.goFlexArray[r]];
-                return cell;
-            }
-           
+            GoCollectionViewCell *cell = [GoCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+            [cell updateCurrentUI:self.goFlexArray[r]];
+            return cell;
         }
     }
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if ([collectionView isEqual:self.goFlexCollectionView]) {
-        if (indexPath.row == 0) {
-            return CGSizeMake([GoFlexCollectionViewCell cellHeightFromCurrentCellTitle:self.goFlexArray[0]], 19);
-        }else
-        return CGSizeMake([GoCollectionViewCell cellHeightFromCurrentCellTitle:self.goFlexArray[indexPath.row]], 19);
+        return CGSizeMake([GoCollectionViewCell cellWidthFromCurrentCellTitle:self.goFlexArray[indexPath.row]], 19);
     }else
     return CGSizeMake(105.f, 60.f);
 }
@@ -154,9 +156,9 @@
     }
     return _goArray;
 }
-- (NSArray *)goFlexArray{
+- (NSMutableArray *)goFlexArray{
     if (!_goFlexArray) {
-        _goFlexArray = @[@"最新的资讯如下：",@"最新的资讯",@"最新资讯",@"最新的",@"最新的资",@"Black",@"Gray",@"alpha",@"Red",@"Green",@"Blue",@"Orange"];
+        _goFlexArray = [NSMutableArray arrayWithObjects:@"最新的资讯如下：",@"最新的资讯",@"最新资讯",@"最新的",@"最新的资",@"Black",@"Gray",@"alpha",@"Red",@"Green",@"BlueBlueBlue",@"Orange" ,nil];
     }
     return _goFlexArray;
 }

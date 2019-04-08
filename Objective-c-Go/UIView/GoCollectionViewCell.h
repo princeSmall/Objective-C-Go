@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GoCollectionViewCell : BaseCollectionViewCell
 - (void)updateCurrentUI:(NSString *)title;
-+ (CGFloat)cellHeightFromCurrentCellTitle:(NSString *)title;
++ (CGFloat)cellWidthFromCurrentCellTitle:(NSString *)title;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GoFlexCollectionViewCell : BaseCollectionViewCell
-+ (CGFloat)cellHeightFromCurrentCellTitle:(NSString *)title;
++ (CGFloat)cellWidthFromCurrentCellTitle:(NSString *)title;
 - (void)updateCurrentUI:(NSString *)title;
 @end
 

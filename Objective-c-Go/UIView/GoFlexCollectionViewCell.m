@@ -14,10 +14,10 @@
 @end
 @implementation GoFlexCollectionViewCell
 
-+ (CGFloat)cellHeightFromCurrentCellTitle:(NSString *)title{
++ (CGFloat)cellWidthFromCurrentCellTitle:(NSString *)title{
     /*计算宽度时要确定高度*/
     CGRect rect = [title boundingRectWithSize:CGSizeMake(MAXFLOAT,15.f) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15.f]} context:nil];
-    return rect.size.width + 5;
+    return rect.size.width + 5.f;
 }
 - (void)updateCurrentUI:(NSString *)title{
     self.titleLabel.text = title;
