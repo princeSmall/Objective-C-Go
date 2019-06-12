@@ -16,6 +16,9 @@
 #import "GoShareFunctionViewController.h"
 #import "GoCollectionViewController.h"
 #import "GoControlViewController.h"
+#import "GoSplitViewController.h"
+#import "GoGrayViewController.h"
+#import "GoPopViewViewController.h"
 
 typedef NS_ENUM(NSInteger,goType) {
     GO_UIToolbar = 0,
@@ -110,9 +113,13 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
             break;
         case GO_UIView:{
             if (indexPath.row == 0) {
-                
+                [self.navigationController pushViewController:[GoGrayViewController new] animated:YES];
             }else if (indexPath.row ==1){
                 [self.navigationController pushViewController:[GoCollectionViewController new] animated:YES];
+            }else if (indexPath.row == 2){
+                [self.navigationController presentViewController:[GoSplitViewController new] animated:YES completion:nil];
+            }else if (indexPath.row == 3){
+                [self.navigationController pushViewController:[GoPopViewViewController new]  animated:YES];
             }
         }
             break;
@@ -165,7 +172,7 @@ static NSString *const headReusableIndetifier = @"headReusableIndetifier";
 - (NSArray *)viewArray{
     if (!_viewArray) {
         
-        _viewArray = @[@"UITableView",@"UICollectionView",@"UISplitViewController"];
+        _viewArray = @[@"UITableView",@"UICollectionView",@"UISplitViewController",@"GoPopViewViewController"];
     }
     return _viewArray;
 }

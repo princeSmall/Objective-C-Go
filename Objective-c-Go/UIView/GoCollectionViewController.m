@@ -14,16 +14,19 @@
 @interface GoCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     NSInteger currentI;
     NSInteger currentPageControl;
+    NSIndexPath *currentIndexPath;
 }
 @property (nonatomic, strong) UICollectionView *goCollectionView;
 @property (nonatomic, strong) UICollectionView *goFlexCollectionView;
 @property (nonatomic, strong) UICollectionView *goScrollCollectionView;
+@property (nonatomic, strong) UICollectionView *goSelectedCollectionView;
 @property (nonatomic, strong) NSArray *goArray;
 @property (nonatomic, strong) NSMutableArray *goFlexArray;
 @property (nonatomic, strong) NSArray *goScrollArray;
 @property (nonatomic, strong) UIPageControl *goPageControl;
 @property (nonatomic, strong) UICollectionViewFlowLayout *flow;
 @property (nonatomic, strong) dispatch_source_t gcdTime;
+
 @end
 
 @implementation GoCollectionViewController
@@ -60,6 +63,11 @@
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.bottom.mas_equalTo(self.goScrollCollectionView.mas_bottom).offset(-10);
         make.size.mas_equalTo(CGSizeMake(50, 10));
+    }];
+    [self.view addSubview:self.goSelectedCollectionView];
+    [self.goSelectedCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.goScrollCollectionView.mas_bottom).offset(50);
     }];
     [self addGcdTime];
     // Do any additional setup after loading the view.
@@ -108,15 +116,23 @@
     self.flow.scrollDirection = self.itemButton.selected ? UICollectionViewScrollDirectionVertical : UICollectionViewScrollDirectionHorizontal;
     [self.goCollectionView reloadData];
 }
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    if ([collectionView isEqual:self.goSelectedCollectionView]) {
+        return 2;
+    }else{
+        return 1;
+    }
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if ([collectionView isEqual:self.goCollectionView]) {
          return self.goArray.count;
     }else if ([collectionView isEqual:self.goScrollCollectionView]){
         return self.goScrollArray.count;
-    }else{
+    }else if ([collectionView isEqual:self.goFlexCollectionView]){
         return self.goFlexArray.count;
+    }else {
+        return 5;
     }
-   
 }
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger r = indexPath.row;
@@ -128,7 +144,17 @@
         GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
         [cell updateCurrentUI:self.goFlexArray[r]];
         return cell;
-    } else{
+    }else if ([collectionView isEqual:self.goSelectedCollectionView]){
+        GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+        [cell updateCurrentUI:self.goFlexArray[r]];
+        if ([currentIndexPath isEqual:indexPath]) {
+            cell.backgroundColor = [UIColor redColor];
+        }else{
+            cell.backgroundColor = [UIColor whiteColor];
+        }
+        return cell;
+    }
+    else{
         if ((currentI != 1 && currentI == r) || r == 0) {
             GoFlexCollectionViewCell *cell = [GoFlexCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
             [cell updateCurrentUI:self.goFlexArray[r]];
@@ -145,7 +171,10 @@
         return CGSizeMake([GoCollectionViewCell cellWidthFromCurrentCellTitle:self.goFlexArray[indexPath.row]], 19);
     }else if ([collectionView isEqual:self.goScrollCollectionView]){
         return CGSizeMake(M_WIDTH, 100);
-    }else
+    }else if ([collectionView isEqual:self.goSelectedCollectionView]){
+        return CGSizeMake(M_WIDTH / 5.0 - 10.0, 60);
+    }
+    else
     return CGSizeMake(105.f, 60.f);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -153,6 +182,12 @@
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 10.f;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if ([collectionView isEqual:self.goSelectedCollectionView]) {
+        currentIndexPath = indexPath;
+        [self.goSelectedCollectionView reloadData];
+    }
 }
 // 防止按住图片而没有停止定时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -243,6 +278,17 @@
         [_goScrollCollectionView registerClass:[GoFlexCollectionViewCell class] forCellWithReuseIdentifier:[GoFlexCollectionViewCell reuseIdentifier]];
     }
     return _goScrollCollectionView;
+}
+- (UICollectionView *)goSelectedCollectionView{
+    if (!_goSelectedCollectionView) {
+        UICollectionViewFlowLayout *f = [UICollectionViewFlowLayout new];
+        _goSelectedCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:f];
+        _goSelectedCollectionView.delegate = self;
+        _goSelectedCollectionView.dataSource = self;
+        _goSelectedCollectionView.backgroundColor = [UIColor whiteColor];
+        [_goSelectedCollectionView registerClass:[GoFlexCollectionViewCell class] forCellWithReuseIdentifier:[GoFlexCollectionViewCell reuseIdentifier]];
+    }
+    return _goSelectedCollectionView;
 }
 - (UIPageControl *)goPageControl{
     if (!_goPageControl) {

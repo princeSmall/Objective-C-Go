@@ -10,7 +10,13 @@
 		1C02FDB4225AE5710098811C /* GoFlexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDB3225AE5710098811C /* GoFlexCollectionViewCell.m */; };
 		1C02FDB7225AEF3A0098811C /* GoFlexFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDB6225AEF3A0098811C /* GoFlexFlowLayout.m */; };
 		1C02FDBB225B23BE0098811C /* GoControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDBA225B23BE0098811C /* GoControlViewController.m */; };
+		1C02FDBE225C79BE0098811C /* GoSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDBD225C79BE0098811C /* GoSplitViewController.m */; };
+		1C02FDC1225C7D630098811C /* GoSplitMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDC0225C7D630098811C /* GoSplitMasterViewController.m */; };
+		1C02FDC4225C7D730098811C /* GoSplitDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C02FDC3225C7D730098811C /* GoSplitDetailViewController.m */; };
 		1C0897622254A3070079FCBD /* GoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0897612254A3070079FCBD /* GoCollectionViewCell.m */; };
+		1C328A1B2264239B00230DFD /* GoGrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C328A1A2264239B00230DFD /* GoGrayViewController.m */; };
+		1C5852DD22A8AD9100392CB3 /* GoPopViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5852DC22A8AD9100392CB3 /* GoPopViewViewController.m */; };
+		1C5852E022A8AE5800392CB3 /* GoPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5852DF22A8AE5800392CB3 /* GoPopView.m */; };
 		1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */; };
 		1C6BCF722249B7B500EB3746 /* GoSearchBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6BCF712249B7B500EB3746 /* GoSearchBarViewController.m */; };
 		1C6BCF7C2249FBFB00EB3746 /* searchBar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1C6BCF7B2249FBFA00EB3746 /* searchBar.pdf */; };
@@ -70,8 +76,20 @@
 		1C02FDB6225AEF3A0098811C /* GoFlexFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoFlexFlowLayout.m; sourceTree = "<group>"; };
 		1C02FDB9225B23BE0098811C /* GoControlViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoControlViewController.h; sourceTree = "<group>"; };
 		1C02FDBA225B23BE0098811C /* GoControlViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoControlViewController.m; sourceTree = "<group>"; };
+		1C02FDBC225C79BE0098811C /* GoSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoSplitViewController.h; sourceTree = "<group>"; };
+		1C02FDBD225C79BE0098811C /* GoSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoSplitViewController.m; sourceTree = "<group>"; };
+		1C02FDBF225C7D630098811C /* GoSplitMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoSplitMasterViewController.h; sourceTree = "<group>"; };
+		1C02FDC0225C7D630098811C /* GoSplitMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoSplitMasterViewController.m; sourceTree = "<group>"; };
+		1C02FDC2225C7D730098811C /* GoSplitDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoSplitDetailViewController.h; sourceTree = "<group>"; };
+		1C02FDC3225C7D730098811C /* GoSplitDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoSplitDetailViewController.m; sourceTree = "<group>"; };
 		1C0897602254A3070079FCBD /* GoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoCollectionViewCell.h; sourceTree = "<group>"; };
 		1C0897612254A3070079FCBD /* GoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoCollectionViewCell.m; sourceTree = "<group>"; };
+		1C328A192264239B00230DFD /* GoGrayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoGrayViewController.h; sourceTree = "<group>"; };
+		1C328A1A2264239B00230DFD /* GoGrayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoGrayViewController.m; sourceTree = "<group>"; };
+		1C5852DB22A8AD9100392CB3 /* GoPopViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoPopViewViewController.h; sourceTree = "<group>"; };
+		1C5852DC22A8AD9100392CB3 /* GoPopViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoPopViewViewController.m; sourceTree = "<group>"; };
+		1C5852DE22A8AE5800392CB3 /* GoPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoPopView.h; sourceTree = "<group>"; };
+		1C5852DF22A8AE5800392CB3 /* GoPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoPopView.m; sourceTree = "<group>"; };
 		1C6BCF6D2248ABD800EB3746 /* GoToolBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoToolBarViewController.h; sourceTree = "<group>"; };
 		1C6BCF6E2248ABD800EB3746 /* GoToolBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoToolBarViewController.m; sourceTree = "<group>"; };
 		1C6BCF702249B7B500EB3746 /* GoSearchBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoSearchBarViewController.h; sourceTree = "<group>"; };
@@ -302,6 +320,18 @@
 				1C02FDB6225AEF3A0098811C /* GoFlexFlowLayout.m */,
 				1C0897602254A3070079FCBD /* GoCollectionViewCell.h */,
 				1C0897612254A3070079FCBD /* GoCollectionViewCell.m */,
+				1C02FDBF225C7D630098811C /* GoSplitMasterViewController.h */,
+				1C02FDC0225C7D630098811C /* GoSplitMasterViewController.m */,
+				1C02FDC2225C7D730098811C /* GoSplitDetailViewController.h */,
+				1C02FDC3225C7D730098811C /* GoSplitDetailViewController.m */,
+				1C02FDBC225C79BE0098811C /* GoSplitViewController.h */,
+				1C02FDBD225C79BE0098811C /* GoSplitViewController.m */,
+				1C328A192264239B00230DFD /* GoGrayViewController.h */,
+				1C328A1A2264239B00230DFD /* GoGrayViewController.m */,
+				1C5852DB22A8AD9100392CB3 /* GoPopViewViewController.h */,
+				1C5852DC22A8AD9100392CB3 /* GoPopViewViewController.m */,
+				1C5852DE22A8AE5800392CB3 /* GoPopView.h */,
+				1C5852DF22A8AE5800392CB3 /* GoPopView.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -511,18 +541,24 @@
 				1C6BCF9F224B5A0C00EB3746 /* GoNavigationViewController.m in Sources */,
 				1C02FDB4225AE5710098811C /* GoFlexCollectionViewCell.m in Sources */,
 				1CE8223822534CD800955223 /* GoShareFunctionViewController.m in Sources */,
+				1C328A1B2264239B00230DFD /* GoGrayViewController.m in Sources */,
 				1C6BCF8D224B155900EB3746 /* GoTabBarMainViewController.m in Sources */,
+				1C5852DD22A8AD9100392CB3 /* GoPopViewViewController.m in Sources */,
 				1C6BCF97224B479600EB3746 /* GoTabbarChildMessageViewController.m in Sources */,
 				1C0897622254A3070079FCBD /* GoCollectionViewCell.m in Sources */,
+				1C02FDBE225C79BE0098811C /* GoSplitViewController.m in Sources */,
 				1C6BCF94224B473400EB3746 /* BaseViewController.m in Sources */,
 				1C6BCF6F2248ABD800EB3746 /* GoToolBarViewController.m in Sources */,
 				1CE8223C225350CF00955223 /* GoCollectionViewController.m in Sources */,
+				1C5852E022A8AE5800392CB3 /* GoPopView.m in Sources */,
 				1C6BCF9A224B47AE00EB3746 /* GoTabbarChildSetViewController.m in Sources */,
 				1C6BCFA5224B65E300EB3746 /* GoNavigationMainViewController.m in Sources */,
 				1C7843362244B6BE00C60295 /* main.m in Sources */,
 				1C6BCF722249B7B500EB3746 /* GoSearchBarViewController.m in Sources */,
 				1C7843612244C7E700C60295 /* BaseTableViewCell.m in Sources */,
+				1C02FDC1225C7D630098811C /* GoSplitMasterViewController.m in Sources */,
 				1C7843252244B6BB00C60295 /* AppDelegate.m in Sources */,
+				1C02FDC4225C7D730098811C /* GoSplitDetailViewController.m in Sources */,
 				1C6BCFA2224B5EFC00EB3746 /* GoNavigationChildViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,28 +24,12 @@
 }
 
 
-
-
-
-
 - (void)navigationBar:(UINavigationBar *)navigationBar didPushItem:(UINavigationItem *)item{
     NSLog(@"1");
 }
 - (void)navigationBar:(UINavigationBar *)navigationBar didPopItem:(UINavigationItem *)item{
     NSLog(@"2");
 }
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

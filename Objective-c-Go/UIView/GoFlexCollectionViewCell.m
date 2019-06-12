@@ -23,7 +23,7 @@
     self.titleLabel.text = title;
 }
 - (void)layoutCurrentUI{
-    self.contentView.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(0);
@@ -33,6 +33,7 @@
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.textColor = [UIColor blackColor];
+        _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
     }
